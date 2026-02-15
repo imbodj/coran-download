@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coran en Français</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #00695C, #004D40);
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.card {
+  background: white;
+  color: #004D40;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  margin: 30px auto;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.btn {
+  display: block;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.download {
+  background: #00695C;
+  color: white;
+}
+
+.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.qr {
+  margin-top: 20px;
+}
+
+.counter {
+  margin-top: 15px;
+  font-size: 14px;
+  color: gray;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="logo.png" class="logo">
+
+<h1>📖 Coran en Français</h1>
+<p>Application Android simple et élégante pour lire le Coran.</p>
+
+<div class="card">
+
+<a href="coran.apk" class="btn download" onclick="incrementCounter()" download>
+⬇ Télécharger l’APK
+</a>
+
+<a href="https://wa.me/?text=📖 Téléchargez l'application Coran en Français 👉 https://TONNOM.github.io/coran-download/"
+class="btn whatsapp" target="_blank">
+📲 Partager sur WhatsApp
+</a>
+
+<div class="qr">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://TONNOM.github.io/coran-download/" width="150">
+</div>
+
+<div class="counter">
+Téléchargements : <span id="count">0</span>
+</div>
+
+</div>
+
+<footer>
+© 2026 Coran App - Développé avec ❤️
+</footer>
+
+</div>
+
+<script>
+let count = localStorage.getItem("downloadCount") || 0;
+document.getElementById("count").innerText = count;
+
+function incrementCounter() {
+  count++;
+  localStorage.setItem("downloadCount", count);
+  document.getElementById("count").innerText = count;
+}
+</script>
+
+</body>
+</html>
